@@ -1,0 +1,11 @@
+<!--pages/historyList/historyList.wxml-->
+<view class='container' wx:for='{{list}}'>
+  <navigator class='container_left item_view ' url='/pages/historyDetail/historyDetail?id={{item.ID}}'>
+    <image class='item_image radius5' src='{{downloadUrl}}{{item.ImageID}}' mode='aspectFill'>
+    </image>
+    <view class='statusView'>
+      {{item.OutTime?"已结束":"活动中"}}
+    </view>
+    <text class='single  item_width font28 color44'>{{item.Title}}</text>
+  </navigator>
+</view>

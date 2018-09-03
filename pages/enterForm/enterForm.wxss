@@ -1,0 +1,204 @@
+/* pages/EnterForm/enterForm.wxss */
+
+.peopleImage {
+  margin-top: 2%;
+  width: 157rpx;
+  height: 220rpx;
+  background-color: pink;
+}
+
+.fb {
+  width: 96%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2%;
+  background-color: white;
+}
+
+.time-bg {
+  width: 94%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.time-line {
+  border-bottom: thin solid #f5f5f5;
+}
+
+.input {
+  width: 100%;
+  align-self: center;
+}
+
+.text {
+  width: 20%;
+}
+
+.selected {
+  background-color: #52d0ca;
+  color: white;
+}
+
+.unSelected {
+  background-color: #f5f5f5;
+  color: #444;
+}
+
+.radioButton {
+  height: 60rpx;
+  width: 110rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.radioContainer {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.containerRight {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bm_bg {
+  background-color: #52d0ca;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bm_btn {
+  font-size: 30rpx;
+  line-height: 100rpx;
+  color: white;
+}
+
+.cb {
+  font-size: 22rpx;
+  line-height: 100rpx;
+  height: 100rpx;
+  color: #999;
+}
+
+.cb text {
+  color: #52d0ca;
+}
+
+/*  重写 checkbox 样式  */
+
+/* 未选中的 背景样式 */
+
+checkbox .wx-checkbox-input {
+  border-radius: 20%; /* 圆角 */
+  width: 22rpx; /* 背景的宽 */
+  height: 22rpx; /* 背景的高 */
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: thin solid #52d0ca;
+  background: transparent;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 20%; /* 圆角 */
+  width: 22rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 22rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 22rpx;
+  text-align: center;
+  font-size: 22rpx; /* 对勾大小 30rpx */
+  color: #52d0ca; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.pop {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  top: 0;
+  left: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex .checkItem {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-top: 30rpx;
+}
+
+.service_selection {
+  padding-bottom: 30rpx;
+  background: white;
+}
+
+.service_selection label {
+  background: #f5f5f5;
+  color: #444;
+  padding: 6px 12px;
+  font-size: 28rpx;
+  border-radius: 5px;
+}
+
+.service_selection .is_checked {
+  color: white;
+  background: #52d0ca;
+}
+
+.agreeHeaderText {
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.agreeTitleText {
+  width: 100%;
+  text-align: left;
+  font-size: 28rpx;
+  color: #52d0ca;
+}
+
+.agreeContentText {
+  width: 100%;
+  font-size: 24rpx;
+  color: #444;
+  word-wrap: break-word;
+  display: block;
+  white-space: pre-line;
+}
+.disabled{
+  color: #999;
+}

@@ -1,0 +1,32 @@
+/* pages/clockIn/clockIn.wxss */
+page{
+  height: 100%;
+}
+.bg {
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  height: 100%;
+  width: 94%;
+  background-color: white;
+}
+
+.rCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.round {
+  width: 260rpx;
+  height: 260rpx;
+  border-radius: 260rpx;
+  border: 14rpx solid #52d0ca;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bottom{
+ margin-bottom: 60rpx;
+}

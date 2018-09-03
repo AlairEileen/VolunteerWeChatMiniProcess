@@ -1,0 +1,8 @@
+<!--pages/entryForm.wxml-->
+<view class='container' wx:for='{{list}}' >
+  <view class='container_left item_view ' data-id='{{item.ID}}' bindtap='goDetail'>
+    <image class='item_image radius5' src='{{downloadUrl}}{{item.ImageID}}' mode='aspectFill'></image>
+    <text class='single marginTop5 item_width font28 color44'>{{item.Title}}</text>
+    <text class='single marginTop4 item_width font24 color99'>报名截止时间:{{item.LastEnterTime}}</text>
+  </view>
+</view>

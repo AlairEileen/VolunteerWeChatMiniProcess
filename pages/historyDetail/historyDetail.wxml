@@ -1,0 +1,49 @@
+<!--pages/activityDetail/activityDetail.wxml-->
+<view class='container'>
+  <image wx:if="{{obj}}" class='item_image radius5' src='{{downloadUrl}}{{obj.ImageID}}' mode='aspectFill'></image>
+
+  <view class='container_left item_view ' data-id='{{item.ID}}' bindtap='goDetail'>
+
+    <view class='timeContainer container radius5'>
+      <text class='single time-bg time-line item_width font28 color44'>{{obj.Title}}</text>
+      <view class=' brief-bg time-line item_width font24 color99'>{{obj.Brief}}</view>
+      <text class='single  item_width font28 color44 time-bg time-line'>活动时间：{{obj.StartTime}} -- {{obj.EndTime}}</text>
+      <text class='single  item_width font28 color44 time-bg time-line'>报名截止时间：{{obj.LastEnterTime}}</text>
+      <text class='single  item_width font28 color44 time-bg'>需要人数：{{obj.CountPeople}}</text>
+    </view>
+    <block wx:for='{{obj.Floors}}' wx:for-item='floor' wx:key='floor'>
+      <block wx:for='{{floor.FormDates}}' wx:for-item='dates' wx:key='dates'>
+        <block wx:for='{{dates.AccountForms}}' wx:for-item='account' wx:key='account'>
+
+          <view wx:if='{{account.AccountID===accountID&&dates.CanShow}}' class='timeContainer container radius5' style='margin-top:20rpx;margin-bottom:20rpx;padding-bottom:36rpx;'>
+            <text class='single time-bg  item_width font28 colorTheme'>{{dates.Date}}</text>
+            <block wx:for='{{account.Clocks}}' wx:for-index='clockIndex' wx:key='clock'>
+              <view class='timeContainer2'>
+                <view wx:if="{{item.Started}}" class='timeView2 {{item.ErrorStart?"fontColorRed":""}}'>
+                  <view class='point'>
+                  </view>
+                  {{item.ErrorStart?"迟到":"上班"}}打卡({{item.ClockInStartTime}})
+                </view>
+                <view wx:if="{{item.Ended}}" class='HLine'></view>
+                <view wx:if="{{item.Ended}}" class='timeView2 {{item.ErrorEnd?"fontColorRed":""}}'>
+                  <view class='point'>
+                  </view>
+                  {{item.ErrorEnd?"早退":"下班"}}打卡({{item.ClockInEndTime}})
+                </view>
+              </view>
+            </block>
+            <block wx:if='{{account.HasMeelArch||account.HasCarArch}}'>
+              <view class='Vline' style='margin-top:40rpx;margin-bottom:30rpx;'></view>
+              <view class='item_width time-bg flex_row_center'>
+                <image style='width:255rpx;height:85rpx;' wx:if="{{account.HasMeelArch}}" src='/images/ycq.png'></image>
+                <image style='width:255rpx;height:85rpx;' wx:if="{{account.HasCarArch}}" src='/images/tcq.png'></image>
+              </view>
+            </block>
+          </view>
+
+        </block>
+      </block>
+    </block>
+  </view>
+
+</view>

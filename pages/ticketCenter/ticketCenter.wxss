@@ -1,0 +1,148 @@
+/* pages/entryForm.wxss */
+
+.item {
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 74.6%;
+  background-color: white;
+}
+
+.round_container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.round_view {
+  background-color: #52d0ca;
+  width: 21rpx;
+  height: 36rpx;
+}
+
+.left_round {
+  border-bottom-right-radius: 36rpx;
+  border-top-right-radius: 36rpx;
+  margin-left: -1rpx;
+}
+
+.right_round {
+  border-bottom-left-radius: 36rpx;
+  border-top-left-radius: 36rpx;
+  margin-right: -1rpx;
+  
+}
+
+page {
+  background-color: #52d0ca;
+}
+
+.title {
+  height: 75rpx;
+  line-height: 75rpx;
+  color: #52d0ca;
+  font-size: 30rpx;
+  padding-left: 38rpx;
+  padding-right: 38rpx;
+  padding-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer {
+  height: 133rpx;
+  font-size: 24rpx;
+  padding-left: 38rpx;
+  padding-right: 38rpx;
+  padding-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rText {
+  text-align: right;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.rButton {
+  border-radius: 50rpx;
+  margin-top: 20rpx;
+  height: 50rpx;
+  width: 130rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: white;
+  background-color: #fadd1f;
+  font-size: 24rpx;
+}
+
+.line {
+  align-self: center;
+  background-color: #ededed;
+  height: 1rpx;
+  width: 100%;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.HLine {
+  background-color: hsl(0, 0%, 93%);
+  width: 32rpx;
+  height: 1rpx;
+  align-self: center;
+}
+
+.contentView {
+  font-size: 24rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+ 
+}
+
+.content1 {
+  color: #777;
+}
+
+.content2 {
+  color: #444;
+}
+
+.point {
+  width: 8rpx;
+  height: 8rpx;
+  background-color: #52d0ca;
+  border-radius: 8rpx;
+  margin-right: 10rpx;
+}
+
+.timeView {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 50rpx;
+}
+
+.timeContainer {
+  display: flex;
+  height: 50rpx;
+
+  flex-direction: row;
+  justify-content: space-between
+}
+.time{
+   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.outTime{
+  color: #fe5050;
+}

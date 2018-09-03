@@ -1,0 +1,20 @@
+<!--pages/activityDetail/activityDetail.wxml-->
+<view class='container'>
+  <image wx:if="{{obj}}" class='item_image radius5' src='{{downloadUrl}}{{obj.ImageID}}' mode='aspectFill'></image>
+
+  <view class='container_left item_view ' data-id='{{item.ID}}' bindtap='goDetail'>
+    <text class='single marginTop5 item_width font28 color44'>{{obj.Title}}</text>
+    <text class='single marginTop4 item_width font24 color99'>{{obj.Brief}}</text>
+    <view class='timeContainer container radius5'>
+      <text class='single  item_width font28 color44 time-bg time-line'>活动时间：{{obj.StartTime}} -> {{obj.EndTime}}</text>
+      <text class='single  item_width font28 color44 time-bg time-line'>报名截止时间：{{obj.LastEnterTime}}</text>
+      <text class='single  item_width font28 color44 time-bg'>需要人数：{{obj.CountPeople}}</text>
+    </view>
+  </view>
+
+</view>
+<view class='bottom bm_bg'>
+  <form style='width:100%;' report-submit='true' bindsubmit='goEnterForm'>
+    <button form-type="submit" class='bm_btn'>我要报名</button>
+  </form>
+</view>

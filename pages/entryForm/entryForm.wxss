@@ -1,0 +1,14 @@
+/* pages/entryForm.wxss */
+.item_image{
+  width: 100%;
+  height: 300rpx;
+  background-color: pink;
+}
+.item_width{
+  width: 100%;
+}
+.item_view{
+  width: 90%;
+  height: fit-content;
+  margin-top:5%;
+}

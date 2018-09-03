@@ -1,0 +1,32 @@
+/* pages/historyList/historyList.wxss */
+
+.item_image {
+  width: 100%;
+  height: 300rpx;
+  background-color: pink;
+}
+
+.item_width {
+  width: 100%;
+  margin-top:-20rpx;
+}
+
+.item_view {
+  width: 90%;
+  height: fit-content;
+  margin-top: 5%;
+}
+
+.statusView {
+  width: 110rpx;
+  height: 50rpx;
+  background-color: #000;
+  opacity: 0.5;
+  position: relative;
+  right: -83.6%;
+  top: -280rpx;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: white;
+}

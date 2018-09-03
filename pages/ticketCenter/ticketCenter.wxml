@@ -1,0 +1,147 @@
+<!--pages/entryForm.wxml-->
+<view class='container' style='padding-bottom:50rpx;'>
+  <image src='/images/top.png' mode='aspectFit' style='height:280rpx;'></image>
+
+  <view class='item' wx:if="{{hasMeel}}">
+    <view class='title'>
+      <text>用餐券</text>
+      <text wx:if='{{!AccountForm.HasMeelArch}}' class='rButton' bindtap='getMeelArch'>领取</text>
+      <text wx:else class='rText'>仅限今日</text>
+    </view>
+    <view class='round_container'>
+      <view class='round_view left_round'>
+      </view>
+      <view class='line'>
+      </view>
+      <view class='round_view right_round'>
+      </view>
+    </view>
+    <block wx:if="{{AccountForm.HasMeelArch}}">
+
+      <view class='contentView'>
+        <view class='content1' style='margin-bottom:50rpx;'>考勤信息(
+          <block wx:for='{{AccountForm.Clocks}}' wx:key="clocksTitle">{{item.StartTime}}-{{item.EndTime}}
+            <text wx:if='{{index!=(AccountForm.Clocks.length-1)}}'>，</text>
+          </block> )
+        </view>
+        <block wx:for='{{AccountForm.Clocks}}' wx:key="clocks">
+          <view class='timeContainer'>
+            <view wx:if="{{item.Started}}" class='timeView {{item.ErrorStart?"fontColorRed":""}}'>
+              <view class='point'>
+              </view>
+              {{item.ErrorStart?"迟到":"上班"}}打卡({{item.ClockInStartTime}})
+            </view>
+            <view wx:if="{{item.Ended}}" class='HLine'></view>
+            <view wx:if="{{item.Ended}}" class='timeView {{item.ErrorEnd?"fontColorRed":""}}'>
+              <view class='point'>
+              </view>
+              {{item.ErrorEnd?"早退":"下班"}}打卡({{item.ClockInEndTime}})
+            </view>
+          </view>
+        </block>
+
+      </view>
+
+      <view class='round_container'>
+        <view class='round_view left_round'>
+        </view>
+        <view class='line'>
+        </view>
+        <view class='round_view right_round'>
+        </view>
+      </view>
+    </block>
+    <view class='footer'>
+      <view class='color77'>说明</view>
+      <view class='color44' style='margin-bottom:45rpx;'>此餐券仅当天有效,使用时出示即可</view>
+    </view>
+  </view>
+
+  <view class='item' style="{{hasMeel?'margin-top:40rpx;':''}}" wx:if="{{hasCar}}">
+    <view class='title'>
+      <text>停车券</text>
+      <text wx:if='{{!AccountForm.HasCarArch}}' class='rButton' bindtap='getCarArch'>领取</text>
+      <text wx:else class='rText'>仅限今日</text>
+    </view>
+    <view class='round_container'>
+      <view class='round_view left_round'>
+      </view>
+      <view class='line'>
+      </view>
+      <view class='round_view right_round'>
+      </view>
+    </view>
+    <block wx:if="{{AccountForm.HasCarArch}}">
+      <block wx:if="{{AccountForm.HasMeelArch}}">
+
+        <view class='contentView'>
+          <view class='content1' style='margin-bottom:50rpx;'>考勤信息(
+            <block wx:for='{{AccountForm.Clocks}}' wx:key="clocksTitle">{{item.StartTime}}-{{item.EndTime}}
+              <text wx:if='{{index!=(AccountForm.Clocks.length-1)}}'>，</text>
+            </block> )
+          </view>
+          <block wx:for='{{AccountForm.Clocks}}' wx:key="clocks">
+            <view class='timeContainer'>
+              <view wx:if="{{item.Started}}" class='timeView {{item.ErrorStart?"fontColorRed":""}}'>
+                <view class='point'>
+                </view>
+                {{item.ErrorStart?"迟到":"上班"}}打卡({{item.ClockInStartTime}})
+              </view>
+              <view wx:if="{{item.Ended}}" class='HLine'></view>
+              <view wx:if="{{item.Ended}}" class='timeView {{item.ErrorEnd?"fontColorRed":""}}'>
+                <view class='point'>
+                </view>
+                {{item.ErrorEnd?"早退":"下班"}}打卡({{item.ClockInEndTime}})
+              </view>
+            </view>
+          </block>
+
+        </view>
+
+
+        <!-- <view class='contentView'>
+          <view class='content1' style='margin-bottom:50rpx;'>考勤信息(
+            <block wx:for='{{AccountForm.Clocks}}'>{{item.StartTime}}-{{item.EndTime}}
+              <text wx:if='{{index!=(AccountForm.Clocks.length-1)}}'>，</text>
+            </block> )</view>
+          <block wx:for='{{AccountForm.Clocks}}'>
+            <view class='timeContainer'>
+              <view class='timeView'>
+                <view class='point'>
+                </view>
+                上班打卡({{item.ClockInStartTime}})
+              </view>
+              <view class='HLine'></view>
+              <view class='timeView'>
+                <view class='point'>
+                </view>
+                下班打卡({{item.ClockInEndTime}})
+              </view>
+            </view>
+
+            <view wx:if='{{index!=(AccountForm.Clocks.length-1)}}' class='time'>
+              <view class='HLine'></view>
+            </view>
+          </block>
+
+        </view> -->
+
+        <view class='round_container'>
+          <view class='round_view left_round'>
+          </view>
+          <view class='line'>
+          </view>
+          <view class='round_view right_round'>
+          </view>
+        </view>
+      </block>
+
+
+    </block>
+    <view class='footer'>
+      <view class='color77'>说明</view>
+      <view class='color44' style='margin-bottom:45rpx;'>此停车券仅当天有效,使用时出示即可</view>
+    </view>
+  </view>
+
+</view>

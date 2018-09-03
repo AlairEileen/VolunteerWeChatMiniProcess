@@ -1,0 +1,89 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.3",
+	"appid": "wx9e8ca1e233312e7e",
+	"projectname": "%E5%A6%87%E5%B9%BC%E4%BF%9D%E5%81%A5%E9%99%A2%E5%BF%97%E6%84%BF%E8%80%85",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "报名tab",
+					"pathName": "pages/entryForm/entryForm",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "领券中心",
+					"pathName": "pages/ticketCenter/ticketCenter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "授权框",
+					"pathName": "modals/authorize/authorize",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "活动详情",
+					"pathName": "pages/activityDetail/activityDetail",
+					"query": "id=5b72867c59acc22894489383"
+				},
+				{
+					"id": 4,
+					"name": "报名提交",
+					"pathName": "pages/enterForm/enterForm",
+					"query": "id=5b72867c59acc22894489383"
+				},
+				{
+					"id": -1,
+					"name": "打卡",
+					"pathName": "pages/clockIn/clockIn",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "历史纪录",
+					"pathName": "pages/historyList/historyList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "历史详情",
+					"pathName": "pages/historyDetail/historyDetail",
+					"query": "id=5b72867c59acc22894489383"
+				}
+			]
+		}
+	}
+}

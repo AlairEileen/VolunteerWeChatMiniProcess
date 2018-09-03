@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/entryForm/entryForm",
+    "pages/ticketCenter/ticketCenter",
+    "modals/authorize/authorize",
+    "pages/activityDetail/activityDetail",
+    "pages/enterForm/enterForm",
+    "pages/clockIn/clockIn",
+    "pages/historyList/historyList",
+    "pages/historyDetail/historyDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "妇幼保健院志愿者",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/sy.png",
+        "selectedIconPath": "images/sy_g.png"
+      },
+      {
+        "pagePath": "pages/entryForm/entryForm",
+        "text": "报名",
+        "iconPath": "images/bm.png",
+        "selectedIconPath": "images/bm_g.png"
+      }
+    ],
+    "color": "#aeaeae",
+    "selectedColor": "#52d1ca"
+  }
+}

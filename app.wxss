@@ -1,0 +1,150 @@
+/**app.wxss**/
+
+page {
+  background-color: #f5f5f5;
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  background: none;
+}
+
+.fontColorRed {
+  color: #fe5050;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bg {
+  background-color: #f5f5f5;
+}
+
+.arr {
+  height: 28rpx;
+  width: 14rpx;
+}
+
+.container_left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.flex_row {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+
+.flex_row_center {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.single {
+  /* 超出的文本内容隐藏 */
+  overflow: hidden;
+  /* 超出显示省略号 */
+  text-overflow: ellipsis;
+  /* 强制不换行 */
+  white-space: nowrap;
+}
+
+.marginTop6 {
+  margin-top: 6%;
+}
+
+.marginTop5 {
+  margin-top: 5%;
+}
+
+.marginTop4 {
+  margin-top: 3.75%;
+}
+
+.marginTop3 {
+  margin-top: 3%;
+}
+
+.smallText {
+  font-size: 28rpx;
+}
+
+.largeText {
+  font-size: 36rpx;
+}
+
+.textGray {
+  color: gainsboro;
+}
+
+.radius5 {
+  border-radius: 5rpx;
+}
+
+.color44 {
+  color: #444;
+}
+
+.color99 {
+  color: #999;
+}
+
+.color77 {
+  color: #777;
+}
+
+.colorTheme {
+  color: #52d0ca;
+}
+
+.font24 {
+  font-size: 24rpx;
+}
+
+.font28 {
+  font-size: 28rpx;
+}
+
+.font30 {
+  font-size: 30rpx;
+}
+
+.fontBold {
+  font-weight: bold;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.inputDefault {
+  color: #444;
+  font-size: 28rpx;
+}
+
+.inputRightDefault {
+  color: #444;
+  font-size: 28rpx;
+  text-align: right;
+}

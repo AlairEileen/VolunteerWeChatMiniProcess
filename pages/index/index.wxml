@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container bg">
+  <image class='header' src='/images/banener.png' mode='aspectFit'></image>
+
+  <form style='width:100%;' report-submit='true' bindsubmit='goClock'>
+    <!-- <button form-type="submit"> -->
+    <button class='item_large radius5' form-type="submit">
+      <image src='/images/qddk.png' mode='aspectFit' style='width:150rpx;height:176rpx;'></image>
+      <text style='font-size:28rpx;color:#444444'>签到打卡</text>
+    </button>
+    <!-- </button> -->
+  </form>
+  <view class='smallContainer' style='align-self: center;'>
+    <form style='width:50%;' report-submit='true' bindsubmit='goTicket'>
+      <button form-type="submit" class='item_small item_small_left radius5'>
+        <image src='/images/lqzx.png' mode='aspectFit' style='width:133rpx;height:115rpx;'></image>
+        <text style='font-size:28rpx;color:#444444'>领券中心 </text>
+      </button>
+    </form>
+    <form style='width:50%;' report-submit='true' bindsubmit='goHistory'>
+      <button form-type="submit" class='item_small item_small_right radius5'>
+        <image src='/images/lscx.png' mode='aspectFit' style='width:126rpx;height:138rpx;'></image>
+        <text style='font-size:28rpx;color:#444444'>历史查询</text>
+      </button>
+    </form>
+  </view>
+</view>
+<view class='pop' wx:if="{{!hasUserInfo && canIUse}}">
+  <button open-type="getUserInfo" class='btnUserInfo' bindgetuserinfo="getUserInfo"> 允许获取 用户信息权限</button>
+</view>

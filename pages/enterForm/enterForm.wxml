@@ -1,0 +1,202 @@
+<!--pages/EnterForm/enterForm.wxml-->
+<view class='container'>
+  <view class='fb radius5'>
+
+    <image wx:if='{{selectedFile}}' class='peopleImage' src='{{selectedFile}}' bindtap='uploadImage'></image>
+    <image wx:elif='{{submitObj.Account.PicID}}' class='peopleImage' src='{{downloadUrl}}{{submitObj.Account.PicID}}' bindtap='uploadImage'></image>
+    <image wx:else class='peopleImage' src='/images/photo.png' bindtap='uploadImage'></image>
+
+    <view class='time-bg time-line'>
+      <text class='single font28 color77 text'>真实姓名
+      </text>
+      <input class='inputRightDefault input'  bindinput='realNameInput' value='{{submitObj.Account.RealName}}'>
+      </input>
+    </view>
+
+    <view class='time-bg time-line'>
+      <text class='single font28 color77 text' decode='{{true}}'>性&emsp;&emsp;别
+      </text>
+      <view class='radioContainer'>
+        <block wx:if='{{submitObj.Account.IsMale}}'>
+          <view class='radioButton selected radius5' bindtap='selectedMale'>男</view>
+          <view style='width:30rpx;'></view>
+          <view class='radioButton unSelected radius5' bindtap='selectedFemale'>女</view>
+        </block>
+        <block wx:else>
+          <view class='radioButton unSelected radius5' bindtap='selectedMale'>男</view>
+          <view style='width:30rpx;'></view>
+          <view class='radioButton selected radius5' bindtap='selectedFemale'>女</view>
+        </block>
+      </view>
+    </view>
+
+    <view class='time-bg time-line'>
+      <text class='single font28 color77 text'>手机号码
+      </text>
+      <input class='inputRightDefault input' bindinput='phoneInput' placeholder='' value='{{submitObj.Account.AccountPhoneNumber}}'>
+      </input>
+    </view>
+
+    <view class='time-bg time-line'>
+      <text class='single font28 color77 text' decode='{{true}}'>是否健康
+      </text>
+      <view class='radioContainer'>
+        <block wx:if='{{submitObj.Account.IsHealth}}'>
+          <view class='radioButton selected radius5' bindtap='selectedHealth'>是</view>
+          <view style='width:30rpx;'></view>
+          <view class='radioButton unSelected radius5' bindtap='selectedUnHealth'>否</view>
+        </block>
+        <block wx:else>
+          <view class='radioButton unSelected radius5' bindtap='selectedHealth'>是</view>
+          <view style='width:30rpx;'></view>
+          <view class='radioButton selected radius5' bindtap='selectedUnHealth'>否</view>
+        </block>
+      </view>
+    </view>
+
+    <view class='time-bg time-line' bindtap='showChangePath'>
+      <text class='single font28 color77 text'>报名渠道
+      </text>
+      <view class='containerRight'>
+        <text class='single font28 color77' wx:if="{{pathKey1=='个人'}}">{{pathKey1}}</text>
+        <text class='single font28 color77' wx:else>{{pathKey1}}-{{pathKey2}}</text>
+        <view style='width:20rpx;'></view>
+        <image src='/images/arr.png' class='arr' mode='aspectFill'></image>
+      </view>
+    </view>
+    <view class='time-bg time-line' bindtap='showChangeFloor'>
+      <text class='single font28 color77 text'>选择楼层
+      </text>
+      <view class='containerRight'>
+        <text class='single font28 color77'>{{floorValue}}</text>
+        <view style='width:20rpx;'></view>
+        <image src='/images/arr.png' class='arr' mode='aspectFill'></image>
+      </view>
+    </view>
+
+    <view class='time-bg time-line'>
+      <text class='single font28 color77 text' style='width:100%;'>参加时间
+      </text>
+      <view class='containerRight'>
+        <text class='single font28 color77' style='width:70%;text-align:right;'>{{selectedDate}}</text>
+      </view>
+    </view>
+
+    <view class='container'>
+      <checkbox-group bindchange='agreeChange'>
+        <label class='cb'>
+
+          <checkbox class='cusCb' checked='{{agree}}' value='{{agree}}'>我已同意
+            <text bindtap='showAgreement'>《志愿者协议》</text>
+          </checkbox>
+        </label>
+      </checkbox-group>
+    </view>
+
+  </view>
+</view>
+<view class='bottom bm_bg' bindtap='submitForm'>
+  <view class='bm_btn'>我要报名</view>
+</view>
+
+
+<view class='pop' wx:if="{{!hiddenPathModal}}">
+  <view class='container' style='background-color:white;height:400rpx;width:100%;'>
+    <view class='font28 color44 flex_row' style='height:100rpx;background-color:#f5f5f5;width:100%;text-align:center;line-height:100rpx; justify-content:space-between;'>
+      <text style='padding-left:40rpx;' bindtap='cancelPathModal'>取消</text>
+      <text style='text-align: center; text-size:30rpx;' class='color77'>报名渠道</text>
+      <text style='padding-right:40rpx;' bindtap='checkedPath'>确定</text>
+    </view>
+    <picker-view indicator-style="line-height:90rpx;height:90rpx;" style="width: 100%; height: 270rpx;  " value="{{pathValue}}" bindchange="onPathChanged">
+      <picker-view-column>
+        <view wx:for="{{pathKey1s}}" class='font28 color44' style="line-height:65rpx;height:90rpx;text-align:center;">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{pathKey2s}}" class='font28 color44' style="line-height:65rpx;height:90rpx;text-align:center; ">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+
+<view class='pop' wx:if="{{!hiddenFloorModal}}">
+  <view class='container' style='background-color:white;height:400rpx;width:100%;'>
+    <view class='font28 color44 flex_row' style='height:100rpx;background-color:#f5f5f5;width:100%;text-align:center;line-height:100rpx; justify-content:space-between;'>
+      <text style='padding-left:40rpx;' bindtap='cancelFloorModal'>取消</text>
+      <text style='text-align: center; text-size:30rpx;' class='color77'>选择楼层</text>
+      <text style='padding-right:40rpx;' bindtap='checkedFloor'>确定</text>
+    </view>
+
+    <picker-view indicator-style="line-height:90rpx;height:90rpx;" style="width: 100%; height: 270rpx;" class='font28 color44' value="{{selectedFloor}}" bindchange="onFloorChanged">
+      <picker-view-column>
+
+        <view wx:for="{{floorsEnabled}}"style="line-height:65rpx;height:90rpx;text-align:center;">
+          {{item.FloorName}}楼
+          <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>{{!item.Enabled?"已报满":"未报满"}}
+        </view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+
+<view class='pop' wx:if="{{!hiddenDateModal}}">
+  <view class='container' style='background-color:white;height:800rpx;width:100%;'>
+    <view class='font28 color44 flex_row' style='height:100rpx;background-color:#f5f5f5;width:100%;text-align:center;line-height:100rpx; justify-content:space-between;'>
+      <text style='padding-left:40rpx;' bindtap='cancelDateModal'>取消</text>
+      <text style='text-align: center; text-size:30rpx;' class='color77'>选择日期</text>
+      <text style='padding-right:40rpx;' bindtap='checkedDate'>确定</text>
+    </view>
+
+    <scroll-view scroll-y="true" style='width:100%;height:700rpx;white-space:nowrap;'>
+      <view class="container" style="width:100%;display:inline-block;">
+        <checkbox-group bindchange="serviceValChange" style=" width:100%;">
+          <block wx:for="{{allGoodsFilte}}">
+            <text style=' width:100%;text-align:left;padding-left:30rpx; ' class='marginTop6 font28 '>{{item.title}}</text>
+            <view class=" service_selection flex" style='width:100%; '>
+              <block wx:for="{{item.date}}">
+                <view class="checkItem">
+                  <label class="checkBoxItem {{item.checked?'is_checked ':' '}}" style="{{item.CanForm?' ':'color:#999;'}}">
+                    <checkbox value="{{item.value}}" disabled='{{!item.CanForm}}' checked="{{item.checked}}" hidden="false" />{{item.name}}</label>
+                </view>
+              </block>
+            </view>
+          </block>
+        </checkbox-group>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>
+<view class='pop' wx:if="{{!hiddenAgreementModal}}">
+  <view class='container' style='background-color:white;height:1100rpx;width:100%;'>
+    <view class='font28 color44 flex_row' style='height:100rpx;background-color:#f5f5f5;width:100%;text-align:center;line-height:100rpx; justify-content:space-between;'>
+      <text style='padding-left:40rpx;'></text>
+      <text style='text-align: center; text-size:30rpx;' class='color77'>志愿者协议</text>
+      <text style='padding-right:40rpx;'></text>
+    </view>
+    <scroll-view scroll-y="true" style='width:100%;height:1000rpx;white-space:nowrap;'>
+      <view style='padding:30rpx;'>
+        <view class='agreeHeaderText single'>
+          宁海县妇幼保健院
+        </view>
+
+        <view class='agreeTitleText single'>
+          志愿者服务内容:
+        </view>
+        <view class='agreeContentText'>
+          1、提供咨询服务，做好方向指引，协助查询医生出诊信息，指导专家及名医预约。\n\n2、引导患者购买病历，协助填写患者信息，指导患者自主挂号和自主打印化验报告。 \n\n3、引导患者或家属办理出 、入院手续，协助护送患者到相关病区。 \n\n4、遇到行走不便的患者，予以搀扶或代借轮椅，协助老年患者上下扶梯和出入电梯。 \n\n5、发放医院宣传资料及健康宣传资料，做好禁烟 \n\n6、帮助无家属陪护的输液患者，开展简单的生活照顾。 \n\n7、收集患者及家属的意见建议。 \n\n8、协助医务人员做好患者沟通，当遇到患者投诉时，先安抚患者，并将其引导至投诉处理部门。\n\n9、发现地面上有水渍、
+          污物等易引起患者滑倒的情况，要及时与楼层的保洁员联系。 \n\n10、接受医院分派的公益性任务。\n\n
+        </view>
+        <view class='agreeTitleText single'>
+          志愿者管理制度:
+        </view>
+        <view class='agreeContentText'>
+          为规范志愿者管理，弘扬奉献、友爱、互助、进步的志愿者精神，牢固树立为人民服务的宗旨，特制定如下管理规定： \n\n 第一条：自觉弘扬“奉献、友爱、互助、进步”的志愿者精神，展现蓬勃向上、开拓进取的精神风貌，维护医院和志愿者的形象。\n\n 第二条：严格遵守国家法律法规，服从工作岗位安排和医院制度管理，积极主动地展开工作。\n\n 第三条：遵守劳动纪律，不迟到，不早退。上岗前做好必要的工作准备。 \n\n 第四条：按照微笑、热情、文明、专业的标准提供志愿服务，工作时间不可从事与工作无关的活动，不得在公共场所吸烟或饮酒，不得在工作岗位上吃东西。\n\n第五条：珍惜志愿者的公众形象，上岗时着志愿者统一服装，并保持仪表整洁、举止文明、态度和蔼，面对他人，主动微笑示意。\n\n第六条：对所有的服务对象保持尊重、平等、热情的态度，按照职责规定提供志愿服务。如果不能解决的情况，要联系医院志愿者办公室，请院内志愿服务团队给予帮助。\n\n第七条：遵守各项工作纪律。针对媒体采访要求，遵从所在团队的工作安排，展示志愿者良好形象。\n\n第八条：不可利用工作之便为自己或他人谋求不当利益，不得向服务对象索要签名、礼品或小费，不得擅自接受服务对象的馈赠。工作时间不主动与服务对象合影。\n\n第九条：如遇突发事件，在确保自身安全的前提下，按照规范的应急流程果断处置，遇到无法处理时，第一时间向医院志愿者办公室汇报，并注意维持正常秩序，避免事态的扩大。\n\n第十条：遵守医院和所在服务岗位的其他相关规定。\n\n
+
+        </view>
+      </view>
+    </scroll-view>
+    <view class='bottom bm_bg'>
+      <view class='bm_btn' bindtap='agreementOk'>同意</view>
+    </view>
+  </view>
+</view>
